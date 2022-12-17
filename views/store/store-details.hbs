@@ -1,0 +1,25 @@
+<h2>Details for {{nameOfStore}}</h2>
+<div>
+  <p> {{bio}}</p>
+  <img src="{{picture_url}}" alt="{{name}}" width="300">
+
+  {{#if stores}}
+  <h2>stores:</h2>
+  <ul>
+    {{#each stores}}
+    <li>{{title}}</li>
+    {{/each}}
+  </ul>
+  {{else}}
+  <h2>Add stores by this user:</h2>
+  <form action="/authors/{{_id}}/edit" method="post">
+    {{#each booksList}}
+    <input id="{{title}}" type="checkbox" name="books" value="{{_id}}">
+    <label for="{{title}}">{{title}}</label>
+    <br />
+    {{/each}}
+
+    <button type="submit">Add</button>
+  </form>
+  {{/if}}
+</div>

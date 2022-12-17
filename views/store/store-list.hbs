@@ -1,0 +1,16 @@
+<h2>List of all Stores</h2>
+
+{{#each allStore}}
+<div>
+  <p>owner:{{owner}}</p>
+  <p>nameOfStore: {{nameOfStore}}</p>
+  <p>
+    description:{{description}}
+  </p>
+  <p>location: {{location}}</p>
+  <p>rating : {{rating}}</p>
+
+  <img src="{{picture_url}}" width="300">
+  <a href="/store/{{_id}}">See details</a>
+</div>
+{{/each}}

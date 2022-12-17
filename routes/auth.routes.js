@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
+const bcrypt = require('bcryptjs');
 // ℹ️ Handles password encryption
-const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 // How many rounds should bcrypt run the salt (default - 10 rounds)
@@ -16,8 +15,12 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET /auth/signup
-router.get("/signup", isLoggedOut, (req, res) => {
-  res.render("auth/signup");
+router.get("/signup", (req, res,next) => {
+  try {
+    res.render('auth/signup');
+  } catch (error) {
+    next(error);
+  }
 });
 
 // POST /auth/signup
@@ -43,7 +46,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   }
 
   //   ! This regular expression checks password for special characters and minimum length
-  /*
+ 
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   if (!regex.test(password)) {
     res
@@ -53,7 +56,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     });
     return;
   }
-  */
+
 
   // Create a new user - start by hashing the password
   bcrypt
@@ -144,15 +147,25 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 // GET /auth/logout
-router.get("/logout", isLoggedIn, (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      res.status(500).render("auth/logout", { errorMessage: err.message });
-      return;
+router.post("/logout", isLoggedIn, (req, res) => {
+  req.session.destroy((error) => {
+    if (error) {
+      next(error);
     }
-
     res.redirect("/");
   });
 });
 
 module.exports = router;
+
+// GET /auth/profile
+router.get('/profile',  (req, res, next) => {
+  try {
+    const  currentUser  = req.session;
+    console.log(currentUser)
+    res.render('./auth/profile', {currentUser});
+  } catch (error) {
+    next(error);
+  }
+});
+
