@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Store = require('../models/Store.model');
+const Store = require('../models/store.model');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 // ------ CRUD - Create -------
