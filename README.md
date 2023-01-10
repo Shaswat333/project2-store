@@ -1,4 +1,4 @@
-# projrct2-store
+# project2-store
 # A Store Z
 
 <br>
@@ -23,7 +23,7 @@ Search platform for stores in that place and creating the favorite list of store
 - **logout** - As a user I want to be able to log out from the web page so that I can make sure no one will access my account
 - **favorite list** - As a user I want to see the list of my favorite and delete them.
 - **edit user** - As a user I want to be able to edit my profile.
-- **result** - As a user I want to see the list of car filter by my preferences.
+- **result** - As a user I want to see the list of stores filter by my preferences.
 - **store listing** - As a user I want to see more details of the store, be able to call them and visit their website and save it as favorites.
 
 
@@ -75,8 +75,6 @@ store model
 summary
 {
 nameOfStore: String,
-minpriceOfStore: Number,
-maxpriceOfStore: Number,
 typeOfStore: String,
 rent: Number,
 number: Number,
@@ -123,7 +121,7 @@ category: String
 
 
 ## Links
-
+azstore.cyclic
 
 
 ### Git
@@ -132,7 +130,7 @@ The url to your repository and to your deployed project
 
 [Repository Link](https://github.com/Shaswat333/project2-store )
 
-[Deploy Link](https://impossible-pear-whale.cyclic.app)
+[Deploy Link](https://azstore.cyclic.app)
 
 
 

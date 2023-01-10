@@ -1,9 +1,11 @@
-<h2>Details for {{nameOfStore}}</h2>
+<h2>{{nameOfStore}}</h2>
 <div>
-  <p> {{bio}}</p>
-  <img src="{{picture_url}}" alt="{{name}}" width="300">
+  <p> location:{{location}}</p>
+  <p> Owner:{{owner}}</p>
+  <p> Rent:£{{rating}}</p>
+  
 
-  {{#if stores}}
+ {{#if stores}}
   <h2>stores:</h2>
   <ul>
     {{#each stores}}
@@ -11,15 +13,17 @@
     {{/each}}
   </ul>
   {{else}}
-  <h2>Add stores by this user:</h2>
-  <form action="/authors/{{_id}}/edit" method="post">
-    {{#each booksList}}
-    <input id="{{title}}" type="checkbox" name="books" value="{{_id}}">
+  <h2>Profile</h2>
+  <form action="/auth/{{_id}}/edit" method="post">
+    {{#each storeList}}
+    <input id="{{title}}" type="checkbox" name="store" value="{{_id}}">
     <label for="{{title}}">{{title}}</label>
     <br />
     {{/each}}
 
-    <button type="submit">Add</button>
+    <button type="submit">Add to the favourites</button>
+    <a href="/store/{{_id}}/edit">Edit</a>
+    <a href="/store/{{_id}}/delete">Delete</a>
   </form>
   {{/if}}
 </div>

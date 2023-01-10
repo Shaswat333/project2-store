@@ -169,3 +169,12 @@ router.get('/profile',  (req, res, next) => {
   }
 });
 
+// GET /favourites
+router.get("/favourites", (req, res,next) => {
+  try {
+    res.render('auth/favourites');
+  } catch (error) {
+    next(error);
+  }
+});
+

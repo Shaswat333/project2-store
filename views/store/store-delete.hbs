@@ -1,0 +1,13 @@
+<h1>{{nameOfStore}}</h1>
+
+<div>
+  <p>Name of the owner {{owner}}</p>
+  <p>Type of store {{nameOfStore}}</p>
+  <p>Location {{location}}</p>
+  <p>Description {{description}}</p>
+  <p>Rent {{rating}}</p>
+
+  <form action="/store/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+  </form>
+</div>

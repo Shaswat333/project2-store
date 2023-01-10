@@ -1,7 +1,6 @@
-<h2>Find a location near you.</h2>
-
-<form action="/location/location-near" method="post">
-    <label for="owner">
+<h2>Edit the store</h2>
+<form action="/store/{{_id}}/edit" method="post">
+<label for="owner">
         Name of the owner
         <input type="text" name="owner" id="owner">
     </label>
@@ -10,17 +9,17 @@
         <input type="text" name="nameOfStore" id="nameOfStore">
     </label>
     <label for="description">
-        Type Of Store
+        Description
         <input type="text" name="description" id="description">
     </label>
     <label for="location">
         Location 
         <input type="name" name="location" id="location">
     </label> 
-    <label for="rating">
+    <label for="rent">
         Rent
-        <input type="number" name="rating" id="rating">
+        <input type="number" name="rent" id="rent">
     </label>
 
-    <button type="submit">Create a Store</button>
+    <button type="submit">Recreate</button>
 </form>
